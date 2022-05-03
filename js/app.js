@@ -9,6 +9,7 @@ let turn
 let isWinner
 
 /*------------------------ Cached Element References ------------------------*/
+const board = document.querySelector('.board')
 const sq0 = document.querySelector('#sq0')
 const sq1 = document.querySelector('#sq1')
 const sq2 = document.querySelector('#sq2')
@@ -18,7 +19,7 @@ const sq5 = document.querySelector('#sq5')
 const sq6 = document.querySelector('#sq6')
 const sq7 = document.querySelector('#sq7')
 const sq8 = document.querySelector('#sq8')
-
+const message = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -27,3 +28,8 @@ const sq8 = document.querySelector('#sq8')
 
 /*-------------------------------- Functions --------------------------------*/
 
+// init();
+
+function init() {
+  console.log('init')
+}
