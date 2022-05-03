@@ -23,13 +23,34 @@ const message = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-
+board.addEventListener("click", function (evt) {
+  evt.preventDefault()
+  console.log(`i've been clicked`)
+})
 
 
 /*-------------------------------- Functions --------------------------------*/
 
-// init();
+init();
+
+// 3.2) That initialize function should initialize the state variables:
+  // see 3.2.1) - 3.2.4) 
 
 function init() {
   console.log('init')
+  turn = 1
+  isWinner = null
+  squares = [
+    null, null, null,
+    null, null, null,
+    null, null, null
+  ]
+  // render()
+}
+
+function render() {
+  for (let i = 0; i < squares.length; i++) {
+    // set i value = player
+    console.log(squares[i])
+  }
 }
