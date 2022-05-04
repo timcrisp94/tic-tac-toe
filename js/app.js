@@ -23,10 +23,8 @@ const message = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-board.addEventListener("click", function (evt) {
-  evt.preventDefault()
-  console.log(evt)
-})
+board.addEventListener("click", handleClick)
+
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -45,8 +43,27 @@ function init() {
     null, null, null,
     null, null, null
   ]
+  message.textContent = 'X goes first'
   // render()
 }
+
+function handleClick(evt) {
+  const index = evt.target.id.replace('sq', '')
+  console.log(index)
+  if (isWinner) {
+    return
+  }
+  if (squares[index] !== null) {
+    return
+  }
+  squares[index] = turn
+  turn *= -1
+  console.log(turn)
+  
+  // render()
+  // getWinner
+}
+
 
 function render() {
   if (!isWinner) {
