@@ -25,7 +25,7 @@ const message = document.querySelector('#message')
 /*----------------------------- Event Listeners -----------------------------*/
 board.addEventListener("click", function (evt) {
   evt.preventDefault()
-  console.log(`i've been clicked`)
+  console.log(evt)
 })
 
 
@@ -49,8 +49,10 @@ function init() {
 }
 
 function render() {
-  for (let i = 0; i < squares.length; i++) {
-    // set i value = player
-    console.log(squares[i])
+  if (!isWinner) {
+    for (let i = 0; i < squares.length; i++) {
+      // set i value = player
+      console.log(squares[i])
+    }
   }
 }
