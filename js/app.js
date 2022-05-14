@@ -31,11 +31,7 @@ board.addEventListener("click", handleClick)
 
 init();
 
-// 3.2) That initialize function should initialize the state variables:
-  // see 3.2.1) - 3.2.4) 
-
-function init() {
-  console.log('init')
+function init() {  
   turn = 1
   isWinner = null
   squares = [
@@ -64,21 +60,17 @@ function handleClick(evt) {
   // getWinner
 }
 
-// 3.3) The render function should
-	  // 3.3.1) Loop over the board array (which represents the squares on the page), and FOR EACH iteration:
-		  // 3.3.1.1) Use the INDEX of the iteration to access the square in the squares array that corresponds with the current cell being iterated over in the board array
-		  // 3.3.1.2) Style that square however you wish dependant on the value contained in the current cell being iterated over (-1, 1, or null)
-	  // 3.3.2) Render a message reflecting the currrent game state:
-	    // 3.3.2.1) If winner has a value other than null (game still in progress), render whose turn it is.
-	      // Hint: Maybe use a ternary inside of a template literal here?
-	    // 3.3.2.2) If winner is equal to 'T' (tie), render a tie message.
-	    // 3.3.2.3) Otherwise, render a congratulatory message to which player has won.
-	      // Hint (again): Maybe use a ternary inside a template literal here
+/*
+The render function should:
+  
+  Loop over the board array, for each i:
+    - use the idx [i] to access the squares array that corresspond with the current cell being iterated over in the board array
+    - style the square dependant on the value contained in the current cell being iterated over (1, -1, or null)
 
-function render() {
-  squares.forEach(function(square, idx) {
-    if (square === 1) {
-      square[idx].textContent = 'X'
-    }
-  })
-}
+  Render a message reflecting the current game state:
+    - whose turn is it, or a winner (ternary inside a template literal)
+
+- After completing this step, you should be able to manually change the values held in the board array in the init function and see the corresponding style change
+
+
+*/
