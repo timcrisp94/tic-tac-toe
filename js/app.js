@@ -1,5 +1,14 @@
 /*-------------------------------- Constants --------------------------------*/
-
+const winningCombos = [
+	[0, 1, 2],
+	[3, 4, 5],
+	[6, 7, 8],
+	[0, 3, 6],
+	[1, 4, 7],
+	[2, 5, 8],
+	[0, 4, 8],
+	[2, 4, 6]
+]
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -23,7 +32,7 @@ const message = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-board.addEventListener("click", handleClick)
+// board.addEventListener("click", handleClick)
 
 
 
@@ -35,30 +44,27 @@ function init() {
   turn = 1
   isWinner = null
   squares = [
-    null, null, null,
-    null, null, null,
+    1, null, null,
+    null, -1, null,
     null, null, null
   ]
   message.textContent = 'X goes first'
-  // render()
+  render()
 }
 
-function handleClick(evt) {
-  const index = evt.target.id.replace('sq', '')
-  console.log(index)
-  if (isWinner) {
-    return
+function render() {
+  for (let i = 0; i < squares.length; i++) {
+    if (squares[i] === 1) {
+      console.log ('square ' + squares[i] + ' = x')
+    } else if (squares[i] === -1) {
+      console.log ('square ' + squares[i] + ' = o') 
+    } else {
+      console.log ('square ' + squares[i] + ' is empty')
+    }
+
   }
-  if (squares[index] !== null) {
-    return
-  }
-  squares[index] = turn
-  turn *= -1
-  console.log(turn)
-  
-  render()
-  // getWinner
 }
+
 
 /*
 The render function should:
