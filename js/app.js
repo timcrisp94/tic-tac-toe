@@ -1,24 +1,13 @@
-/*-------------------------------- Constants --------------------------------*/
 const winningCombos = [
-	[0, 1, 2],
-	[3, 4, 5],
-	[6, 7, 8],
-	[0, 3, 6],
-	[1, 4, 7],
-	[2, 5, 8],
-	[0, 4, 8],
-	[2, 4, 6]
+	[0, 1, 2], [3, 4, 5], [6, 7, 8],
+	[0, 3, 6], [1, 4, 7], [2, 5, 8],
+	[0, 4, 8], [2, 4, 6]
 ]
 
-
-/*---------------------------- Variables (state) ----------------------------*/
 let squares = []
-let boardArray
-let turn
-// isWinner: a player that won (1 or -1), a tie (t), game is still in play
-let isWinner
+let boardArray, turn, isWinner
 
-/*------------------------ Cached Element References ------------------------*/
+const message = document.querySelector('#message')
 const board = document.querySelector('.board')
 const sq0 = document.querySelector('#sq0')
 const sq1 = document.querySelector('#sq1')
@@ -29,25 +18,17 @@ const sq5 = document.querySelector('#sq5')
 const sq6 = document.querySelector('#sq6')
 const sq7 = document.querySelector('#sq7')
 const sq8 = document.querySelector('#sq8')
-const message = document.querySelector('#message')
 
-
-/*----------------------------- Event Listeners -----------------------------*/
 board.addEventListener("click", handleClick)
-
-
-
-/*-------------------------------- Functions --------------------------------*/
 
 init();
 
 function init() {  
-  
   isWinner = null
   boardArray = [
-    1, 1, 1,
-    null, null, null,
-    null, null, null
+    1, null, 1,
+    null, -1, null,
+    -1, null, 1
   ]
   squares = [
     sq0, sq1, sq2,
