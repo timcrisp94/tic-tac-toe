@@ -45,8 +45,8 @@ function init() {
   
   isWinner = null
   boardArray = [
-    1, null, null,
-    null, -1, null,
+    null, null, null,
+    null, null, null,
     null, null, null
   ]
   squares = [
@@ -60,11 +60,20 @@ function init() {
 }
 
 function handleClick(evt) {
-  let idx = parseInt(evt.target.id.slice(-1))
-  console.log(idx)
+  if (isWinner) {
+    return
+  }
 
-  // let idx = parseInt(evt.target.id.slice(-1))
-  // console.log(idx)
+  let idx = parseInt(evt.target.id.slice(-1))
+  
+  if (boardArray[idx]) {
+    return
+  } 
+
+  boardArray[idx] = turn
+  console.log(boardArray)
+  
+
 }
 
 function render() {
