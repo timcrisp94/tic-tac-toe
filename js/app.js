@@ -13,6 +13,7 @@ const winningCombos = [
 
 /*---------------------------- Variables (state) ----------------------------*/
 let squares = []
+let boardArray
 let turn
 // isWinner: a player that won, a tie, game is still in play
 let isWinner
@@ -41,27 +42,37 @@ const message = document.querySelector('#message')
 init();
 
 function init() {  
-  turn = 1
+  
   isWinner = null
-  squares = [
+  boardArray = [
     1, null, null,
-    null, -1, null,
+    null, null, null,
     null, null, null
   ]
+  squares = [
+    sq0, sq1, sq2,
+    sq3, sq4, sq5,
+    sq6, sq7, sq8
+  ]
+  turn = 1
   message.textContent = 'X goes first'
   render()
 }
 
 function render() {
-  for (let i = 0; i < squares.length; i++) {
-    if (squares[i] === 1) {
-      console.log ('square ' + squares[i] + ' = x')
-    } else if (squares[i] === -1) {
-      console.log ('square ' + squares[i] + ' = o') 
-    } else {
-      console.log ('square ' + squares[i] + ' is empty')
+  for (let i = 0; i < boardArray.length && squares; i++) {
+    if (boardArray[i] === 1) {
+      squares[i].textContent = 'X'
+    } else if (boardArray[i] === -1) {
+      squares[i].textContent = 'O'
     }
+  }
+  turn *= -1
 
+  if (turn === 1) {
+    message.textContent = `it is X's turn`
+  } else if (turn === -1) {
+    message.textContent = `it is O's turn`
   }
 }
 
