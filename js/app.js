@@ -45,7 +45,7 @@ function init() {
   
   isWinner = null
   boardArray = [
-    null, null, null,
+    1, 1, 1,
     null, null, null,
     null, null, null
   ]
@@ -73,12 +73,12 @@ function handleClick(evt) {
   boardArray[idx] = turn
   console.log(boardArray)
   
-
+  turn *= -1
 }
 
 function render() {
-  
   for (let i = 0; i < boardArray.length && squares; i++) {
+
     if (boardArray[i] === 1) {
       squares[i].textContent = 'X'
 
@@ -89,7 +89,7 @@ function render() {
   }
 
   if (!isWinner) {
-    turn *= -1
+    
     turn === 1 ? message.textContent = `it is X's turn` : 
       message.textContent = `now it's O's turn`
     } else if (isWinner === 'T') {
@@ -100,3 +100,23 @@ function render() {
     } 
     
 }
+
+function getWinner() {
+  
+  winningCombos.forEach(function(winningCombo) { 
+    
+    console.log(winningCombo)
+    
+    for (let i = 0; i < winningCombo.length; i++) {
+      
+      console.log(winningCombo[i])
+      
+    }
+  })  
+} 
+
+  
+  
+
+
+console.log(getWinner())
