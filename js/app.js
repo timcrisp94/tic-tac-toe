@@ -33,7 +33,7 @@ const message = document.querySelector('#message')
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-// board.addEventListener("click", handleClick)
+board.addEventListener("click", handleClick)
 
 
 
@@ -57,6 +57,14 @@ function init() {
   turn = 1
   message.textContent = 'X goes first'
   render()
+}
+
+function handleClick(evt) {
+  let idx = parseInt(evt.target.id.slice(-1))
+  console.log(idx)
+
+  // let idx = parseInt(evt.target.id.slice(-1))
+  // console.log(idx)
 }
 
 function render() {
