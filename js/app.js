@@ -24,37 +24,36 @@ board.addEventListener("click", handleClick)
 init();
 
 function init() {  
-  isWinner = null
+  
   boardArray = [
-    1, null, 1,
-    null, -1, null,
-    -1, null, 1
+    null, null, null,
+    null, null, null,
+    null, null, null
   ]
   squares = [
     sq0, sq1, sq2,
     sq3, sq4, sq5,
     sq6, sq7, sq8
   ]
+  isWinner = null
   turn = 1
   message.textContent = 'X goes first'
+
   render()
 }
 
 function handleClick(evt) {
+  let idx = parseInt(evt.target.id.slice(-1)) 
   if (isWinner) {
     return
   }
-
-  let idx = parseInt(evt.target.id.slice(-1))
-  
   if (boardArray[idx]) {
     return
   } 
-
   boardArray[idx] = turn
-  console.log(boardArray)
-  
   turn *= -1
+  render()
+  getWinner()
 }
 
 function render() {
@@ -86,18 +85,20 @@ function getWinner() {
   
   winningCombos.forEach(function(winningCombo) { 
     
-    console.log(winningCombo)
-    
-    for (let i = 0; i < winningCombo.length; i++) {
-      
-      console.log(winningCombo[i])
-      
-    }
-  })  
+    if (boardArray[winningCombo[0]] + boardArray[winningCombo[1]] + boardArray[winningCombo[2]] === 3) {
+      isWinner = 1
+      message.textContent = 'X WINS!'
+    } else 
+    if (boardArray[winningCombo[0]] + boardArray[winningCombo[1]] + boardArray[winningCombo[2]] === -3) {
+      isWinner = -1
+      message.textContent = '0 WINS!'
+    } 
+  })
+
 } 
 
   
   
 
 
-console.log(getWinner())
+// console.log(getWinner())
